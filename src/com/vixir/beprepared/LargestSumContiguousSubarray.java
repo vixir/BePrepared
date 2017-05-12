@@ -2,6 +2,8 @@ package com.vixir.beprepared;
 
 public class LargestSumContiguousSubarray {
 
+	// Kadane's Algorithm
+
 	public static int largestSumSubarray(int[] a) {
 		int max_till_now = Integer.MIN_VALUE;
 		int max_ending_here = 0;
@@ -19,6 +21,7 @@ public class LargestSumContiguousSubarray {
 
 	public static void main(String[] args) {
 		int a[] = { -2, -3, 4, -1, -2, 1, 5, -3 };
+		// maxSumSubarray = 4-1-2+1+5 = 7
 		System.out.println(largestSumSubarray(a));
 	}
 
