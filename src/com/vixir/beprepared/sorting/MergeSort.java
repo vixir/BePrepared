@@ -1,4 +1,4 @@
-package com.vixir.beprepared;
+package com.vixir.beprepared.sorting;
 
 public class MergeSort {
 

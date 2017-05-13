@@ -1,4 +1,4 @@
-package com.vixir.beprepared;
+package com.vixir.beprepared.sorting;
 
 import java.util.Random;
 
@@ -14,7 +14,7 @@ public class UniformShuffle {
 		int n = a.length;
 		Random random = new Random();
 		for (int i = 0; i < n; i++) {
-			int r = random.nextInt(i+1); // correct method is between 0 and i or i and n-1
+			int r = random.nextInt(i+1); // correct method is picking a number between 0 and i or i and n-1
 			exch(a, i, r);
 		}
 	}
