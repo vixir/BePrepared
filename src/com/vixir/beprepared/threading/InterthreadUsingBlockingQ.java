@@ -50,7 +50,6 @@ class QConsumer extends Thread {
 				System.out.println("taken" + l);
 			}
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

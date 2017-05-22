@@ -6,7 +6,7 @@ import java.util.Queue;
 public class InterthreadCommunication {
 
 	public static void main(String[] args) {
-		Queue sharedQ = new LinkedList<Integer>();
+		Queue<Integer> sharedQ = new LinkedList<Integer>();
 		new Producer(sharedQ).start();
 		new Consumer(sharedQ).start();
 	}
@@ -14,9 +14,9 @@ public class InterthreadCommunication {
 }
 
 class Producer extends Thread {
-	private final Queue sharedQ;
+	private final Queue<Integer> sharedQ;
 
-	public Producer(Queue sharedQ) {
+	public Producer(Queue<Integer> sharedQ) {
 		this.sharedQ = sharedQ;
 	}
 
@@ -42,9 +42,9 @@ class Producer extends Thread {
 
 class Consumer extends Thread {
 
-	private final Queue sharedQ;
+	private final Queue<Integer> sharedQ;
 
-	public Consumer(Queue sharedQ) {
+	public Consumer(Queue<Integer> sharedQ) {
 		this.sharedQ = sharedQ;
 	}
 
@@ -57,7 +57,6 @@ class Consumer extends Thread {
 						System.out.println("Queue is empty, waiting");
 						sharedQ.wait();
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -67,7 +66,7 @@ class Consumer extends Thread {
 				if (number == 6) {
 					break;
 				}
-				
+
 			}
 		}
 	}
