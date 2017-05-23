@@ -7,19 +7,10 @@ public class ReEntrantLockExample {
 
 	public static void main(String[] args) {
 		Runner runner = new Runner();
-		Thread t1 = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				runner.firstThread();
-			}
-		});
-
-		Thread t2 = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				runner.secondThread();
-			}
-		});
+		
+		Thread t1 = new Thread(() -> runner.firstThread());
+		Thread t2 = new Thread(() -> runner.secondThread());
+		
 		t1.start();
 		t2.start();
 		try {
