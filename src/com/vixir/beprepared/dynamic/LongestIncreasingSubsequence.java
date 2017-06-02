@@ -14,7 +14,7 @@ public class LongestIncreasingSubsequence {
 		int length = 0;
 		int ans[] = new int[a.length];
 
-		// this can be removed, just return length + 1;
+		// this can be removed, just return length + 1 in the return statement.
 		for (i = 0; i < a.length; i++) {
 			ans[i] = 1;
 		}
