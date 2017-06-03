@@ -1,4 +1,4 @@
-package com.vixir.beprepared;
+package com.vixir.beprepared.recursion;
 
 public class NQueens {
 

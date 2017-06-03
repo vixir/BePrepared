@@ -39,6 +39,7 @@ public class LinkedListIntersection {
 		if (null == a | null == b) {
 			return null;
 		}
+		
 		while (aTemp != null) {
 			aTemp = aTemp.next;
 			countA++;

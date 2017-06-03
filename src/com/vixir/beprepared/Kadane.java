@@ -1,6 +1,6 @@
 package com.vixir.beprepared;
 
-public class LargestSumContiguousSubarray {
+public class Kadane {
 
 	// Kadane's Algorithm
 
