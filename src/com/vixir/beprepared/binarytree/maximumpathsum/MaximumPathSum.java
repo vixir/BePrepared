@@ -1,4 +1,4 @@
-package com.vixir.beprepared.binarytree;
+package com.vixir.beprepared.binarytree.maximumpathsum;
 
 public class MaximumPathSum {
 
