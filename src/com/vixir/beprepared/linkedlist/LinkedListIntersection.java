@@ -16,15 +16,8 @@ public class LinkedListIntersection {
 		d.next = e;
 		f.next = g;
 		g.next = c;
-					  /* a(1)    f(4)      
-						   \     /
-						  b(2)  g(5)
-						     \ /
-						     c(3)
-						       \
-						       d(4)
-						         \
-						         e(5)
+		/*
+		 * a(1) f(4) \ / b(2) g(5) \ / c(3) \ d(4) \ e(5)
 		 */
 		System.out.println(intersection(a, f).val);
 
@@ -39,7 +32,7 @@ public class LinkedListIntersection {
 		if (null == a | null == b) {
 			return null;
 		}
-		
+
 		while (aTemp != null) {
 			aTemp = aTemp.next;
 			countA++;
@@ -49,7 +42,7 @@ public class LinkedListIntersection {
 			bTemp = bTemp.next;
 			countB++;
 		}
-		
+
 		aTemp = a;
 		bTemp = b;
 		int dif = Math.abs(countA - countB);
@@ -71,4 +64,14 @@ public class LinkedListIntersection {
 		return bTemp;
 	}
 
+}
+
+class ListNode {
+	public int val;
+	public ListNode next;
+
+	ListNode(int x) {
+		val = x;
+		next = null;
+	}
 }

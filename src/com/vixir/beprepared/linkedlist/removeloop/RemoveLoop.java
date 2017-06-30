@@ -1,6 +1,5 @@
 package com.vixir.beprepared.linkedlist.removeloop;
 
-
 public class RemoveLoop {
 
 	public static void main(String[] args) {
@@ -9,9 +8,13 @@ public class RemoveLoop {
 		list.push(4);
 		list.push(15);
 		list.push(10);
-		list.head.next.next.next.next = list.head;
-		if (list.detectLoop()) {
+		list.push(11);
+		list.push(12);
+		list.push(13);
+		list.head.next.next.next.next.next.next.next = list.head.next.next.next.next;
+		if (list.detectAndRemoveLoop()) {
 			System.out.println("Loop detected");
+			list.print();
 		} else {
 			System.out.println("no loop in the list");
 		}
@@ -22,6 +25,7 @@ public class RemoveLoop {
 class LinkedList {
 
 	Node head;
+	Node current;
 
 	class Node {
 		int data;
@@ -35,8 +39,12 @@ class LinkedList {
 
 	public void push(int data) {
 		Node node = new Node(data);
-		node.next = head;
-		head = node;
+		if (head == null) {
+			head = node;
+		} else {
+			current.next = node;
+		}
+		current = node;
 	}
 
 	public void print() {
@@ -47,17 +55,27 @@ class LinkedList {
 		}
 	}
 
-	public boolean detectLoop() {
+	public boolean detectAndRemoveLoop() {
 		Node slow = head;
-		Node fast = head;
-		while (null != slow && null != fast && fast.next != null) {
+		Node fast = head.next;
+		while (null != fast && null != fast.next) {
 			slow = slow.next;
 			fast = fast.next.next;
 			if (slow == fast) {
+				removeLoop(slow);
 				return true;
 			}
 		}
 		return false;
+	}
+
+	private void removeLoop(Node fast) {
+		Node slow = head;
+		while (slow != fast.next) {
+			fast = fast.next;
+			slow = slow.next;
+		}
+		fast.next = null;
 	}
 
 }
