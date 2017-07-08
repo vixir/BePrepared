@@ -42,7 +42,6 @@ public class LinkedListIntersection {
 			bTemp = bTemp.next;
 			countB++;
 		}
-
 		aTemp = a;
 		bTemp = b;
 		int dif = Math.abs(countA - countB);
@@ -55,15 +54,12 @@ public class LinkedListIntersection {
 				bTemp = bTemp.next;
 			}
 		}
-
 		while (!aTemp.equals(bTemp)) {
 			aTemp = aTemp.next;
 			bTemp = bTemp.next;
 		}
-
 		return bTemp;
 	}
-
 }
 
 class ListNode {

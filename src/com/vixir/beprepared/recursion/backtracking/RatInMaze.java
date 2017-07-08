@@ -63,9 +63,13 @@ public class RatInMaze {
 
 	public static void main(String[] args) {
 		int N = 5;
-		int[][] maze = { { 1, 0, 1, 1, 1 }, { 1, 1, 1, 0, 1 }, { 0, 0, 0, 1, 1 }, { 0, 0, 0, 1, 0 },
-				{ 0, 0, 0, 1, 1 } };
+		int[][] maze = { { 1, 0, 1, 1, 1 }, { 1, 1, 1, 0, 1 }, { 0, 0, 0, 1, 1 }, { 1, 0, 0, 1, 1 },
+				{ 1, 0, 1, 1, 1 } };
+
 		RatInMaze r = new RatInMaze(N);
+		System.out.println("Original Maze:");
+		r.print(maze);
+		System.out.println("Solution:");
 		r.solveMaze(maze, N);
 	}
 
