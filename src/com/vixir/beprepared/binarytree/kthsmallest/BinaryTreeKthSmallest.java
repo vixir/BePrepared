@@ -1,9 +1,7 @@
-package com.vixir.beprepared.binarytree.lvlorder;
+package com.vixir.beprepared.binarytree.kthsmallest;
 
-import java.util.LinkedList;
-import java.util.Queue;
+public class BinaryTreeKthSmallest {
 
-public class LevelOrderBinaryTree {
 	public static void main(String[] args) {
 		BinaryTree tree = new BinaryTree();
 		tree.root = new Node(1);
@@ -14,8 +12,9 @@ public class LevelOrderBinaryTree {
 		tree.root.right.right = new Node(6);
 		tree.root.right.right.left = new Node(7);
 		tree.root.right.right.right = new Node(8);
-		tree.bfsBinaryTree();
+		System.out.println(tree.kthSmallest(4));
 	}
+
 }
 
 class Node {
@@ -30,22 +29,24 @@ class Node {
 
 class BinaryTree {
 	Node root;
-	Queue<Node> queue = new LinkedList<Node>();
+	int ans = 0;
 
-	public void bfsBinaryTree() {
-		if (root == null) {
+	public int kthSmallest(int k) {
+		int n = 0;
+		Node node = root;
+		kthSmallest(k, n, node);
+		return ans;
+	}
+
+	private void kthSmallest(int k, int n, Node node) {
+		if (null == node) {
 			return;
 		}
-		queue.add(root);
-		while (!queue.isEmpty()) {
-			Node n = queue.remove();
-			System.out.print(n.data + " ");
-			if (null != n.left) {
-				queue.add(n.left);
-			}
-			if (null != n.right) {
-				queue.add(n.right);
-			}
+		kthSmallest(k, n, node.left);
+		n++;
+		if (k == n) {
+			ans = k;
 		}
+		kthSmallest(k, n, node.right);
 	}
 }

@@ -17,7 +17,7 @@ public class PrintSpiral {
 		int col = a[0].length - 1;
 		int mr = 0, mc = 0;
 		int direction = 1;
-		while (((mr <= row) && (col >= 0) && (row >= 0) && (col >= mc))) {
+		while ((col >= 0) && (row >= 0)) {
 			switch (direction) {
 			case 1: {
 				for (int i = mc; i <= col; i++) {
@@ -26,9 +26,6 @@ public class PrintSpiral {
 				mr++;
 				direction = 2;
 			}
-				if (mr > row) {
-					break;
-				}
 			case 2: {
 				for (int i = mr; i <= row; i++) {
 					System.out.print(a[i][col] + " ");
@@ -36,9 +33,6 @@ public class PrintSpiral {
 				col--;
 				direction = 3;
 			}
-				if (col < 0) {
-					break;
-				}
 			case 3: {
 				for (int i = col; i >= mc; i--) {
 					System.out.print(a[row][i] + " ");
@@ -46,9 +40,6 @@ public class PrintSpiral {
 				row--;
 				direction = 4;
 			}
-				if (row < 0) {
-					break;
-				}
 			case 4: {
 				for (int i = row; i >= mr; i--) {
 					System.out.print(a[i][mc] + " ");
@@ -56,9 +47,6 @@ public class PrintSpiral {
 				mc++;
 				direction = 1;
 			}
-				if (mc > col) {
-					break;
-				}
 			}
 		}
 	}

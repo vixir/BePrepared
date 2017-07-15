@@ -1,4 +1,4 @@
-package com.vixir.beprepared.binarysearch;
+package com.vixir.beprepared.array;
 
 public class MinimumElementRotatedArray {
 
