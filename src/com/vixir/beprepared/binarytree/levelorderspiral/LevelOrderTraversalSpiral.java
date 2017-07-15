@@ -5,7 +5,16 @@ import java.util.Stack;
 public class LevelOrderTraversalSpiral {
 
 	public static void main(String[] args) {
-
+		BinaryTree tree = new BinaryTree();
+		tree.root = new Node(1);
+		tree.root.left = new Node(2);
+		tree.root.right = new Node(3);
+		tree.root.left.left = new Node(4);
+		tree.root.left.right = new Node(5);
+		tree.root.right.right = new Node(6);
+		tree.root.right.right.left = new Node(7);
+		tree.root.right.right.right = new Node(8);
+		tree.lvlOrdSpiralUsingTwoStacks();
 	}
 }
 
@@ -20,30 +29,34 @@ class Node {
 
 class BinaryTree {
 	Node root;
-	Stack stackA;
-	Stack stackB;
 
 	public void lvlOrdSpiralUsingTwoStacks() {
-		stackA = new Stack<Integer>();
-		stackB = new Stack<Integer>();
+		Stack<Node> stackA;
+		Stack<Node> stackB;
+		stackA = new Stack<Node>();
+		stackB = new Stack<Node>();
 		Node current = root;
 		stackA.push(current);
-		while (!stackA.isEmpty() && !stackB.isEmpty()) {
+		while (!stackA.isEmpty() || !stackB.isEmpty()) {
 			if (stackB.isEmpty()) {
-				if (null != current.left) {
-					stackB.push(current.left);
-				}
-				if (null != current.right) {
-					stackB.push(current.right);
-				}
+				emptyStack(stackA, stackB);
 			} else {
-				if (null != current.left) {
-					stackA.push(current.left);
-				}
-				if (null != current.right) {
-					stackA.push(current.right);
-				}
+				emptyStack(stackB, stackA);
 			}
 		}
+	}
+
+	private void emptyStack(Stack<Node> stackA, Stack<Node> stackB) {
+		while (!stackA.isEmpty()) {
+			Node x = stackA.pop();
+			System.out.print(x.data + " ");
+			if (null != x.left) {
+				stackB.push(x.left);
+			}
+			if (null != x.right) {
+				stackB.push(x.right);
+			}
+		}
+		System.out.println();
 	}
 }
