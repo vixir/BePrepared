@@ -24,3 +24,18 @@
 * [Shell Sort.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/sorting/ShellSort.java)
 * [Three Way Quick Sort.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/sorting/ThreeWaySort.java)
 * [Uniform Shuffling.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/sorting/UniformShuffle.java)
+
+## Trees
+* [Level Order Traversal.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/lvlorder/LevelOrderBinaryTree.java)
+* [Morris Inorder Traversal.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/bst/morrisinorder/MorrisTraversal.java)
+* [Binary Search Tree from Sorted Array.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/bstfromsortedarray/BSTFromSortedArray.java)
+* [Vertical Order Binary Tree Traversal.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/verticalorder/VerticalOrderBinaryTree.java)
+* [Top View Binary Tree.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/topview/BinaryTreeTopView.java)
+* [Minimum Depth Binary Tree.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/minimumdepth/MinimumDepth.java)
+* [Maximum Path Sum Binary Tree.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/maximumpathsum/MaximumPathSum.java)
+* [Level Order Spiral Traversal.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/levelorderspiral/LevelOrderTraversalSpiral.java)
+* [Whether Binary Tree is Binary Search Tree.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/isbinarysearchtree/BinaryTree.java)
+* [Extract Leaves of Binary Tree.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/extractleaves/ExtractLeaves.java)
+* [Binary Tree Bottom View.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/bottomview/BinaryTreeBottomView.java)
+* [Binary Tree Kth smallest.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/kthsmallest/BinaryTreeKthSmallest.java)
+* [Lowest common ancestor binary tree.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/lcs/LowestCommonAncestor.java)
