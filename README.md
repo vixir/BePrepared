@@ -39,3 +39,6 @@
 * [Binary Tree Bottom View.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/bottomview/BinaryTreeBottomView.java)
 * [Binary Tree Kth smallest.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/kthsmallest/BinaryTreeKthSmallest.java)
 * [Lowest common ancestor binary tree.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/lcs/LowestCommonAncestor.java)
+
+## Graph
+* [Minimum Spanning Tree.] (https://github.com/vixir/BePrepared/tree/master/src/com/vixir/beprepared/mst)
