@@ -22,7 +22,7 @@ public class BreadthFirstPaths {
 	}
 
 	private void bfs(Graph G, int s) {
-		Queue<Integer> q = new LinkedList<Integer>();
+		Queue<Integer> q = new LinkedList<>();
 		for (int v = 0; v < G.V(); v++) {
 			distTo[v] = INFINITY;
 		}

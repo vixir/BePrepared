@@ -2,7 +2,7 @@ package com.vixir.beprepared.graph;
 
 import java.util.LinkedList;
 
-//UnDirected Graph
+//UnDirected Graph implementation
 public class Graph {
 
 	private final int V;
@@ -37,6 +37,10 @@ public class Graph {
 		return E;
 	}
 
+	/**
+	 * @param v vertex of the Graph
+	 * @return return degree i.e, number of nodes directly connected to given vertex
+	 */
 	public int degree(int v) {
 		return adj[v].size();
 	}

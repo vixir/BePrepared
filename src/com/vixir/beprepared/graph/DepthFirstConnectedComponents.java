@@ -1,11 +1,17 @@
 package com.vixir.beprepared.graph;
 
-public class DepthFirstSearch {
+/**
+ * Depth First search to find out :
+ * 1) whether two vertices are connected or not
+ * 2) Number of total vertices in the cluster connected to the given vertex
+ * 3) Can be used to find out number of different clusters by iterating over all the vertices
+ */
+public class DepthFirstConnectedComponents {
 	private boolean[] marked;
 	private int count;
 	private Graph G;
 
-	public DepthFirstSearch(Graph G, int s) {
+	public DepthFirstConnectedComponents(Graph G, int s) {
 		marked = new boolean[G.V()];
 		dfs(G, s);
 	}

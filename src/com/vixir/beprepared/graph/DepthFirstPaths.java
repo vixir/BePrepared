@@ -7,14 +7,12 @@ public class DepthFirstPaths {
 	private boolean[] marked; // marked[v] = is there an s-v path?
 	private int[] edgeTo; // edgeTo[v] = last edge on s-v path
 	private final int s;
-	private int count;// source vertex
 	private Deque<Integer> pathFinal = new ArrayDeque<>();
 
 	public DepthFirstPaths(Graph G, int s) {
 		this.s = s;
 		edgeTo = new int[G.V()];
 		marked = new boolean[G.V()];
-		count = 0;
 		dfs(G, s);
 	}
 
@@ -27,7 +25,6 @@ public class DepthFirstPaths {
 				dfs(G, w);
 			}
 		}
-
 	}
 
 	public boolean hasPathTo(int v) {
@@ -42,6 +39,10 @@ public class DepthFirstPaths {
 			path.push(x);
 		path.push(s);
 		return path;
+	}
+
+	public boolean marked(int v) {
+		return marked[v];
 	}
 
 }

@@ -2,6 +2,9 @@ package com.vixir.beprepared.graph;
 
 import java.util.Deque;
 
+/**
+ * Client class to test Graph utility functions
+ */
 public class GraphClient {
 
 	public static void main(String... args) {
