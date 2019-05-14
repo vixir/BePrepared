@@ -3,11 +3,17 @@ package com.vixir.beprepared.mst;
 import java.util.Comparator;
 import java.util.Random;
 
-public class Edge implements Comparator<Edge> {
+public class Edge implements Comparable<Edge> {
     private Integer a;
     private Integer b;
     private int w;
-    private final Random RANDOM = new Random();
+    private static final Random RANDOM = new Random();
+
+    public Edge(Integer a, Integer b, int w) {
+        this.a = a;
+        this.b = b;
+        this.w = w;
+    }
 
     public int weight() {
         return w;
@@ -24,17 +30,17 @@ public class Edge implements Comparator<Edge> {
         return x == a ? b : a;
     }
 
-    @Override
-    public int compare(Edge o1, Edge o2) {
-        return java.lang.Integer.compare(o1.w, o2.w);
-    }
-
     /**
-     * @param obj not a good implementation, but gets the task done
+     * @param obj not a good implementation, but gets the job done
      * @return boolean
      */
     @Override
     public boolean equals(Object obj) {
         return this.w == ((Edge) obj).w;
+    }
+
+    @Override
+    public int compareTo(Edge o) {
+        return Integer.compare(this.w, o.w);
     }
 }

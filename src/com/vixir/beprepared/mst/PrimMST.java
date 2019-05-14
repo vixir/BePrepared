@@ -4,6 +4,10 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+/**
+ * Spanning Tree : Graph contains minimum number of edges and all vertices
+ * Minimum Spanning Tree: Total weight of sum of the edges must be minimum
+ */
 public class PrimMST {
 
     private double weight;       // total weight of MST
@@ -46,7 +50,7 @@ public class PrimMST {
 
     }
 
-    // scan vertex v
+    // scan vertex v, add minimum weighted edge to priority queue, if not already marked
     private void scan(EdgeWeightedGraph G, int v) {
         marked[v] = true;
         for (Edge e : G.adj(v)) {
@@ -58,7 +62,7 @@ public class PrimMST {
     }
 
     /**
-     * @return the edges in a minimum spanning tree (or forest) as
+     * @return the edges in a minimum spanning tree as
      * an iterable of edges
      */
     public Iterable<Edge> edges() {
