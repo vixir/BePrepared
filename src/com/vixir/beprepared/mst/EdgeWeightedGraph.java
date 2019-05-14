@@ -1,6 +1,7 @@
 package com.vixir.beprepared.mst;
 
 import java.util.*;
+import java.util.stream.*;
 
 public class EdgeWeightedGraph {
 
@@ -56,6 +57,27 @@ public class EdgeWeightedGraph {
     }
 
     /**
+     * @return all edges in this edge-weighted graph
+     */
+    public Iterable<Edge> edges() {
+        List<Edge> list = new ArrayList<>();
+        for (int v = 0; v < V; v++) {
+            int selfLoops = 0;
+            for (Edge e : adj(v)) {
+                if (e.other(v) > v) {
+                    list.add(e);
+                }
+                // add only one copy of each self loop (self loops will be consecutive)
+                else if (e.other(v) == v) {
+                    if (selfLoops % 2 == 0) list.add(e);
+                    selfLoops++;
+                }
+            }
+        }
+        return list;
+    }
+
+    /**
      * @param args Test client to test MST
      */
     public static void main(String[] args) {
@@ -79,6 +101,15 @@ public class EdgeWeightedGraph {
         Edge[] edges = {e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15};
         edgeWeightedGraph.addEdges(edges);
         PrimMST primMST = new PrimMST(edgeWeightedGraph);
-        System.out.println("Minimum weight for the graph is " + primMST.weight());
+        System.out.println("Minimum weight for the graph calculated by Prims algo is " + primMST.weight());
+
+        KruskalMST kruskalMST = new KruskalMST(edgeWeightedGraph);
+        kruskalMST.mstEdges().forEach(e -> System.out.print(e.weight() + " "));
+        Integer mstSum = StreamSupport.stream(kruskalMST.mstEdges().spliterator(), false)
+                .map(Edge::weight)
+                .reduce(Integer::sum)
+                .get();
+        System.out.println("\nMinimum weight for the graph calculated by Kruskal algo is " + mstSum);
+
     }
 }
