@@ -28,7 +28,7 @@ public class KruskalMST {
 }
 
 /**
- *
+ * Detect Cycle in graph
  */
 class UnionFind {
 

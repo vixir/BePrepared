@@ -26,10 +26,10 @@ public class PrimMST {
         pq = new PriorityQueue<Edge>();
         marked = new boolean[G.V()];
 
-        for (int v = 0; v < G.V(); v++)      // run from each vertex to find
+        for (int v = 0; v < G.V(); v++)      // run from each vertex to find  c minimum spanning forest
             if (!marked[v]) {
                 prim(G, v);
-            } // minimum spanning forest
+            }
     }
 
     // run Prim's algorithm in graph G, starting from vertex s
