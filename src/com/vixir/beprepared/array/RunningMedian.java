@@ -30,7 +30,7 @@ public class RunningMedian {
         PriorityQueue<Integer> biggerHeap = left.size() > right.size() ? left : right;
         PriorityQueue<Integer> smallerHeap = left.size() > right.size() ? right : left;
 
-        if (biggerHeap.size() - smallerHeap.size() >= 2) {
+        if (biggerHeap.size() - smallerHeap.size() > 1) {
             smallerHeap.add(biggerHeap.poll());
         }
 
