@@ -35,27 +35,18 @@ class BinaryTree {
     public int kthSmallestIterative(int B) {
         LinkedList<Node> stack = new LinkedList<>();
         Node A = root;
-        stack.add(A);
         int depth = 0;
         while (!stack.isEmpty() || A != null) {
-            if (A != null) {
-                while (A.left != null) {
-                    A = A.left;
-                    stack.push(A);
-                }
-                A = A.right;
+            while (A != null) {
+                stack.push(A);
+                A = A.left;
             }
-            if (!stack.isEmpty()) {
-                Node x = stack.poll();
-                depth++;
-                if (depth == B) {
-                    return x.data;
-                }
-                if (x.right != null) {
-                    A = x.right;
-                    stack.push(x.right);
-                }
+            A = stack.poll();
+            depth++;
+            if (depth == B) {
+                return A.data;
             }
+            A = A.right;
         }
         return -1;
     }
