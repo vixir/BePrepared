@@ -13,7 +13,7 @@ public class PrintSpiral {
 		if (0 == row) {
 			System.out.println("Can not print this.");
 		}
-		row = row - 1;
+		row = a.length - 1;
 		int col = a[0].length - 1;
 		int mr = 0, mc = 0;
 		int direction = 1;
