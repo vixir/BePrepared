@@ -4,7 +4,7 @@ public class QuickSort {
 
     // good algorithms are better than supercomputers
     // great algorithms are better than good ones. :)
-    //compares is 1.39 lg N
+    // compares is 1.39 lg N
     //worst case quadratic
     public static void quickSort(Comparable[] a) {
         int n = a.length;
