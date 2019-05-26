@@ -61,7 +61,7 @@ public class QuickSort {
 
     public static void main(String[] args) {
         Integer intArray[] = {4, -3, 5, 6, 8, -9, 4, 1};
-        Character[] charArray = {'M', 'E', 'R', 'G', 'E', 'S', 'O', 'R', 'T'};
+        Character[] charArray = {'Q', 'U', 'I', 'C', 'K', 'S', 'O', 'R', 'T'};
         quickSort(intArray);
         quickSort(charArray);
         printArray(intArray);
@@ -71,7 +71,7 @@ public class QuickSort {
     private static void printArray(Comparable[] a) {
         StringBuilder builder = new StringBuilder();
         for (Object i : a) {
-            builder.append(String.valueOf(i) + " ");
+            builder.append(i + " ");
         }
         System.out.println(builder.toString());
     }
