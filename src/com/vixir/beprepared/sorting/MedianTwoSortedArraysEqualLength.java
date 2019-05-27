@@ -34,9 +34,14 @@ public class MedianTwoSortedArraysEqualLength {
         if (a.getSize() == 2) {
             return (Math.max(a.getFirst(), b.getFirst()) + Math.min(a.getLast(), b.getLast())) / 2.0;
         }
-        return a.getMedian() > b.getMedian() ?
-                median(a.fromArray(a.start, a.getSize() / 2), b.fromArray(b.getSize() / 2, b.getSize()))
-                : median(a.fromArray((a.getSize() - 1) / 2, (a.end - a.start) / 2), b.fromArray((b.end - b.start) / 2, b.end));
+        double medianA = a.getMedian();
+        double medianB = b.getMedian();
+        if (medianB == medianA) {
+            return medianB;
+        }
+        return medianA > medianB ?
+                median(a.fromArray(0, a.getSize() / 2 + 1), b.fromArray((b.getSize() - 1) / 2, b.getSize()))
+                : median(a.fromArray((a.getSize() - 1) / 2, a.getSize()), b.fromArray(0, b.getSize() / 2 + 1));
     }
 
 }
@@ -45,36 +50,34 @@ class ModifiedArray {
     /**
      * start of the parent array (inclusive)
      */
-    int start;
-    /**
-     * end of the parent array (exclusive)
-     */
-    int end;
+    private int start;
 
     /**
      * Array input for ModifiedArray
      */
-    int[] parentArray;
+    private int[] parentArray;
 
-    int size;
+    private int size;
 
     public ModifiedArray(int[] a) {
         this.start = 0;
         this.parentArray = a;
-        this.end = a.length;
         size = a.length;
     }
 
-    public ModifiedArray fromArray(int start, int end) {
-        ModifiedArray modifiedArray = new ModifiedArray(this.parentArray);
-        modifiedArray.start = start;
-        modifiedArray.end = end;
-        size = modifiedArray.end - modifiedArray.start;
+    public ModifiedArray() {
+    }
+
+    public ModifiedArray fromArray(int startIndex, int endIndex) {
+        ModifiedArray modifiedArray = new ModifiedArray();
+        modifiedArray.parentArray = this.parentArray;
+        modifiedArray.start = this.start + startIndex;
+        modifiedArray.size = endIndex - startIndex;
         return modifiedArray;
     }
 
     public double getMedian() {
-        if ((end - start) % 2 == 0) {
+        if (size % 2 == 0) {
             return (parentArray[start + size / 2 - 1] + parentArray[size / 2 + start]) / 2.0;
         } else {
             return parentArray[start + size / 2];
@@ -86,12 +89,15 @@ class ModifiedArray {
     }
 
     public int getLast() {
-        return parentArray[end - 1];
+        return parentArray[start + size - 1];
     }
 
     public int getSize() {
         return size;
     }
 
+    public int getStart() {
+        return start;
+    }
 }
 
