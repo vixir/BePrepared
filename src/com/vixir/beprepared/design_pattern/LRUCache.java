@@ -2,16 +2,36 @@ package com.vixir.beprepared.design_pattern;
 
 import java.util.*;
 
+/**
+ * @param <Key>   Comparable keys
+ * @param <Value> Values to keep in the cache
+ */
 public class LRUCache<Key extends Comparable<Key>, Value> {
 
+    /**
+     * This will be our data structure for storing keys and values,
+     * we are not storing the values directly but wrapping it around a doubly linked list node
+     */
     private Map<Key, DNode> cacheMap;
 
+    /**
+     * Capacity of the LRU cache
+     */
     private int capacity;
 
+    /**
+     * link ot the first node
+     */
     private DNode first;
 
+    /**
+     * link to the last node
+     */
     private DNode last;
 
+    /**
+     * @param capacity initialize LRU cache with desired capcacity
+     */
     public LRUCache(int capacity) {
         this.capacity = capacity;
         cacheMap = new HashMap<>();
@@ -24,15 +44,15 @@ public class LRUCache<Key extends Comparable<Key>, Value> {
     public void put(Key key, Value value) {
         DNode node = this.cacheMap.get(key);
         if (node == null) {
-            node = new DNode();
-            node.key = key;
-            node.value = value;
+            node = new DNode(key, value);
             this.cacheMap.put(key, node);
             this.add(node);
+
+            // if map size becomes larger than the given capacity,
+            // then we need to remove last node and also remove it from the map
             if (cacheMap.size() > capacity) {
                 DNode last = this.removeLast();
                 this.cacheMap.remove(last.key);
-                capacity--;
             }
         } else {
             node.value = value;
@@ -49,6 +69,10 @@ public class LRUCache<Key extends Comparable<Key>, Value> {
         return node.value;
     }
 
+    /**
+     * @param node For updating first node, we need to remove the given node from the doubly linked list
+     *             and then add it to right of the first
+     */
     private void updateFirst(DNode node) {
         this.remove(node);
         this.add(node);
@@ -60,6 +84,9 @@ public class LRUCache<Key extends Comparable<Key>, Value> {
         node.right.left = prev;
     }
 
+    /**
+     * @param node add is simple pointing first node to the given node and update the existing node.
+     */
     private void add(DNode node) {
         node.left = first;
         node.right = first.right;
@@ -79,6 +106,14 @@ public class LRUCache<Key extends Comparable<Key>, Value> {
         Value value;
         DNode left;
         DNode right;
+
+        public DNode() {
+        }
+
+        public DNode(Key key, Value value) {
+            this.key = key;
+            this.value = value;
+        }
     }
 
     public static void main(String[] args) {

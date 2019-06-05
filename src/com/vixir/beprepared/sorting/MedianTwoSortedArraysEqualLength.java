@@ -4,6 +4,13 @@ import java.util.Arrays;
 
 /**
  * Find median of two sorted arrays of unequal length
+ *
+ * Solution
+ *
+ * In simple words approach is to take the median of both the arrays and compare them.
+ * Trim upper half of the array with smaller median.
+ * Trim lower half of the array with larger median.
+ * Repeat till you have arrays of size 1 or 2 <- this is our base case
  */
 public class MedianTwoSortedArraysEqualLength {
 
@@ -68,11 +75,11 @@ class ModifiedArray {
     public ModifiedArray() {
     }
 
-    public ModifiedArray fromArray(int startIndex, int endIndex) {
+    public ModifiedArray fromArray(int startIndent, int size) {
         ModifiedArray modifiedArray = new ModifiedArray();
         modifiedArray.parentArray = this.parentArray;
-        modifiedArray.start = this.start + startIndex;
-        modifiedArray.size = endIndex - startIndex;
+        modifiedArray.start = this.start + startIndent;
+        modifiedArray.size = size;
         return modifiedArray;
     }
 
