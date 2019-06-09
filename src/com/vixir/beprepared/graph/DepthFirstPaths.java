@@ -41,8 +41,4 @@ public class DepthFirstPaths {
 		return path;
 	}
 
-	public boolean marked(int v) {
-		return marked[v];
-	}
-
 }

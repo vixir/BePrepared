@@ -16,20 +16,27 @@ public class DepthFirstConnectedComponents {
 		dfs(G, s);
 	}
 
-	private void dfs(Graph g, int v) {
+	private void dfs(Graph G, int v) {
 		count++;
 		marked[v] = true;
-		for (int w : G.adj(v)) {
+		for (int w : this.G.adj(v)) {
 			if (!marked[w]) {
-				dfs(G, w);
+				dfs(this.G, w);
 			}
 		}
 	}
 
+	/**
+	 * @param v whether given vertex is connected to vertex passed in constructor
+	 * @return true if connected i.e, part of a single cluster/tree, false if not connected
+	 */
 	public boolean marked(int v) {
 		return marked[v];
 	}
 
+	/**
+	 * @return count of the connected components for given node
+	 */
 	public int getCount() {
 		return count;
 	}
