@@ -42,6 +42,3 @@
 
 ## Graph
 * [Minimum Spanning Tree.] (https://github.com/vixir/BePrepared/tree/master/src/com/vixir/beprepared/mst)
-
-
-https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/45551/Preorder-Inorder-and-Postorder-Iteratively-Summarization
