@@ -9,7 +9,8 @@ public class PalindromeMinCuts {
 
     public static void main(String[] args) {
         PalindromeMinCuts palindromeMinCuts = new PalindromeMinCuts();
-        System.out.println(palindromeMinCuts.palindromeMinCuts("googdaadp"));
+        System.out.println(palindromeMinCuts.palindromeMinCuts("googdaadpop"));
+        System.out.println(palindromeMinCuts.palindromeMinCuts("abcdefghij"));
     }
 
     public int palindromeMinCuts(String s) {
@@ -19,14 +20,19 @@ public class PalindromeMinCuts {
 
         IntStream.range(0, length).forEach(i -> isPalindrome[i][i] = true);
 
-        for (int i = 2; i < length - 1; i++) {
-            for (int j = 0; j < length - i + 1; j++) {
-                int k = i + j - 1;
-                boolean isCurrentIndexEqual = s.charAt(j) == s.charAt(k);
-                if (i == 2) {
-                    isPalindrome[j][k] = isCurrentIndexEqual;
+        // I want to go diagonally down-right from isPalindrome[0][0]
+        // and then increment index by one after one diagonal iteration is done.
+        // So that by the time I reach isPalindrome[k][k], I have the solution for isPalindrome[k-1][k-1]
+        for (int i = 0; i < length; i++) {
+            for (int k = 0; k < length - i; k++) {
+                boolean isCurrentIndexEqual = s.charAt(k) == s.charAt(k + i);
+                if (i == 0) {
+                    isPalindrome[k][k + i] = true;
+                } else if (i == 1) {
+                    isPalindrome[k][k + i] = isCurrentIndexEqual;
                 } else {
-                    isPalindrome[j][k] = isCurrentIndexEqual && isPalindrome[j + 1][k - 1];
+                    // check the diagonally down element in the array for palindrome
+                    isPalindrome[k][k + i] = isCurrentIndexEqual && isPalindrome[k + 1][k + i - 1];
                 }
             }
         }
