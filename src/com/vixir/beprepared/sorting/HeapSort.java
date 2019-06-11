@@ -1,22 +1,26 @@
 package com.vixir.beprepared.sorting;
 
+import java.util.*;
+
 public class HeapSort {
     public static void main(String[] args) {
         Integer[] a = {4, 5, 2, 9, 8, 1, 7};
         HeapSort heap = new HeapSort();
         heap.heapSort(a);
+        System.out.println(Arrays.toString(a));
     }
 
     public void heapSort(Comparable[] a) {
         int N = a.length - 1;
-        for (int i = N / 2; i >= 0; i--) {
+        // create a maxHeap
+        for (int i = N / 2 - 1; i >= 0; i--) {
             sink(a, i, N);
         }
+        // swap top element with current index
         while (N > 1) {
             swap(a, 0, N);
             sink(a, 0, --N);
         }
-        printArray(a);
     }
 
     private void sink(Comparable[] a, int k, int N) {
@@ -36,19 +40,15 @@ public class HeapSort {
         a[j] = temp;
     }
 
+    /**
+     * @param a comparable array
+     * @param j
+     * @param k
+     * @return is a[j] less than a[k]
+     */
     private boolean less(Comparable[] a, int j, int k) {
         int x = a[j].compareTo(a[k]);
-        if (x < 0) {
-            return true;
-        }
-        return false;
+        return (x < 0) ? true : false;
     }
 
-    private static void printArray(Comparable[] a) {
-        StringBuilder builder = new StringBuilder();
-        for (Object i : a) {
-            builder.append(String.valueOf(i) + " ");
-        }
-        System.out.println(builder.toString());
-    }
 }

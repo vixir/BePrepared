@@ -8,6 +8,12 @@ public class MinimumWindowSubstring {
 
     private static final String BLANK = "";
 
+
+    public static void main(String[] args) {
+        MinimumWindowSubstring windowSubstring = new MinimumWindowSubstring();
+        System.out.println(windowSubstring.minWindow("character", "rctr"));
+    }
+
     public String minWindow(String s, String t) {
         if (s.length() < t.length()) {
             return BLANK;

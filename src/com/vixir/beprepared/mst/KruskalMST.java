@@ -57,7 +57,7 @@ class UnionFind {
         int i = root(p);
         int j = root(q);
         if (rank[i] < rank[j]) id[i] = j;
-        else if (rank[j] > rank[j]) id[j] = i;
+        else if (rank[i] > rank[j]) id[j] = i;
         else {
             id[i] = j;
             rank[j]++;
