@@ -41,4 +41,6 @@
 * [Lowest common ancestor binary tree.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/binarytree/lcs/LowestCommonAncestor.java)
 
 ## Graph
-* [Minimum Spanning Tree.] (https://github.com/vixir/BePrepared/tree/master/src/com/vixir/beprepared/mst)
+* [Undirected Graph.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/graph/BreadthFirstPaths.java)
+* [Topological Sort.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/directed_graph/lcs/Graph.java)
+* [Minimum Spanning Tree.](https://github.com/vixir/BePrepared/blob/master/src/com/vixir/beprepared/mst/PrimMST.java)
