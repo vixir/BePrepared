@@ -1,5 +1,8 @@
 package com.vixir.beprepared.bst.morrisinorder;
 
+/**
+ * Using Morris order traversal we can traverse the tree without using stack or recursion
+ */
 public class MorrisTraversal {
 	// for simplicity assume that BST just has keys.
 	public static void main(String[] args) {
@@ -10,7 +13,7 @@ public class MorrisTraversal {
 		binarySearchTree.insert(4);
 		binarySearchTree.insert(5);
 		binarySearchTree.insert(6);
-		binarySearchTree.morrisTraversal();
+		binarySearchTree.morrisInroderTraversal();
 	}
 }
 
@@ -24,23 +27,27 @@ class Node {
 }
 
 class BinarySearchTree {
-	Node root;
+	private Node root;
 
-	public void morrisTraversal() {
+	public void morrisInroderTraversal() {
 		Node currNode = root;
 		while (currNode != null) {
 			if (currNode.left == null) {
 				System.out.print(currNode.data + " ");
 				currNode = currNode.right;
 			} else {
+				// find the inorder predecessor of currentNode
 				Node predecessor = currNode.left;
+				// keep going right until right node is not null or right node is not current
 				while (predecessor.right != currNode && predecessor.right != null) {
 					predecessor = predecessor.right;
 				}
+				// if right node is null, go left after establishing link from predecessor to current
 				if (predecessor.right == null) {
 					predecessor.right = currNode;
 					currNode = currNode.left;
 				} else {
+					// left is already visited. Reset the predecessor link to null. Go right after visiting current
 					predecessor.right = null;
 					System.out.print(currNode.data + " ");
 					currNode = currNode.right;
