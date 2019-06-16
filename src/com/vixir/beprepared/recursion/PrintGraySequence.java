@@ -1,6 +1,6 @@
 package com.vixir.beprepared.recursion;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class PrintGraySequence {
 
