@@ -12,17 +12,16 @@ import java.util.Queue;
  */
 public class KnightOnAChessBoard {
 
-    boolean marked[][];
-    Queue<Square> queue = new LinkedList<>();
+    private Queue<Square> queue = new LinkedList<>();
 
     public int knight(int A, int B, int C, int D, int E, int F) {
-        marked = new boolean[A + 1][B + 1];
+        boolean[][] marked = new boolean[A + 1][B + 1];
         queue.add(new Square(C, D, 0));
         marked[C][D] = true;
 
         // x and y direction, where a knight can move
-        int dx[] = {-2, -1, 1, 2, -2, -1, 1, 2};
-        int dy[] = {-1, -2, -2, -1, 1, 2, 2, 1};
+        int[] dx = {-2, -1, 1, 2, -2, -1, 1, 2};
+        int[] dy = {-1, -2, -2, -1, 1, 2, 2, 1};
 
 
         while (!queue.isEmpty()) {
@@ -51,7 +50,7 @@ public class KnightOnAChessBoard {
         int x, y;
         int dist;
 
-        public Square(int x, int y, int dist) {
+        Square(int x, int y, int dist) {
             this.x = x;
             this.y = y;
             this.dist = dist;
