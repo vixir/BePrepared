@@ -8,11 +8,9 @@ import java.util.*;
  * The order of output does not matter.
  */
 public class AnagramsOfAString {
-    private static final String BLANK = "";
-
 
     public List<Integer> findAnagrams(String s, String p) {
-        int start = 0, end = 0, counter = 0, head = 0;
+        int start = 0, end = 0, counter = 0;
 
         Map<Character, Integer> tMap = new HashMap();
         List<Integer> sol = new ArrayList<>();
@@ -25,6 +23,7 @@ public class AnagramsOfAString {
             tMap.put(c, tMap.getOrDefault(c, 0) + 1);
         }
 
+        // set the counter to distinct characters in p
         counter = tMap.size();
 
         while (end < s.length()) {
