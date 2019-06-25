@@ -43,8 +43,9 @@ public class NQueens {
 
     private static void enumerate(int[] a, int n) {
         int N = a.length;
-        if (n == N) printBoard(a);
-        else {
+        if (n == N) {
+            printBoard(a);
+        } else {
             for (int i = 0; i < N; i++) {
                 a[n] = i;
                 if (isConsistent(a, n))
