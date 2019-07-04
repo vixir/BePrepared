@@ -44,7 +44,7 @@ public class PrefixCutPalindrome {
     /**
      * @param input input String
      * @return -1 -> if there is no palindrome possible
-     * index of the cut element if palindrome is possible
+     * number of elements from the end if palindrome is possible
      */
     private static int findCutPalindrome(String input) {
         if (input == null || input.length() == 0) {
