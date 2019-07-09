@@ -54,7 +54,7 @@ public class PrefixCutPalindrome {
         int[] pattern = pattern(modifiedInput);
         int lastIndex = pattern[pattern.length - 1];
         if (isPalindrome(input.substring(lastIndex))) {
-            return (input.length() - lastIndex) / 2;
+            return lastIndex > input.length() - 1 ? (input.length() - lastIndex) / 2 : lastIndex / 2;
         }
         return -1;
     }
@@ -64,7 +64,7 @@ public class PrefixCutPalindrome {
     }
 
     public static void main(String[] args) {
-        System.out.println(findCutPalindrome("abaaa"));
+        System.out.println(findCutPalindrome("abbad"));
         System.out.println(findCutPalindrome("baabcddddddc"));
         System.out.println(findCutPalindrome("AACEEECAAAACCAA"));
     }
