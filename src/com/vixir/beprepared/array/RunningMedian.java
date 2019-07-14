@@ -30,22 +30,23 @@ public class RunningMedian {
         PriorityQueue<Integer> biggerHeap = left.size() > right.size() ? left : right;
         PriorityQueue<Integer> smallerHeap = left.size() > right.size() ? right : left;
 
-        if (biggerHeap.size() - smallerHeap.size() > 1) {
+        if (biggerHeap.size() - smallerHeap.size() >= 2) {
             smallerHeap.add(biggerHeap.poll());
         }
 
     }
 
     private static void addNumber(PriorityQueue<Integer> left, PriorityQueue<Integer> right, int number) {
-        if (left.size() > right.size()) {
-            right.add(number);
-        } else {
+        if (left.size() == 0 || number < left.peek()) {
             left.add(number);
+        } else {
+            right.add(number);
         }
     }
 
     public static void main(String[] args) {
-        int[] arr = {5, 15, 1, 3, 9};
+        int[] arr = {8, 1, 4, 12, 1};
+
         double[] medians = getMedians(arr);
         DoubleStream.of(medians).forEach(System.out::println);
     }
